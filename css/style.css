@@ -1,0 +1,90 @@
+body {
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.mainButtons {
+    display: none;
+}
+
+.mainDiv {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 736px;
+    margin: 0 auto;
+}
+
+.itemDiv {
+    text-align: center;
+    position: relative;
+    margin: 15px;
+}
+
+.itemDiv > img {
+    width: 154px;
+    height: 142px;
+}
+.pCounter {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    min-width: 20px;
+    height: 20px;
+    padding: 5px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: #000000;
+    background-color: rgba(243, 113, 21, 0.9);
+    border-radius: 20px;
+    border: 1px solid #000000;
+}
+
+.pTitle {
+    font-weight: 400;
+    font-size: 13px;
+    color: #000000;
+}
+
+.addButton {
+    width: 154px;
+    height: 51px;
+    background-color: rgba(243, 113, 21, 0.9);
+    border: 1px solid #000000;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+
+.orderButton {
+    width: 51px;
+    height: 228px;
+    background-color: rgba(243, 113, 21, 0.9);
+    border: 1px solid #000000;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000000;
+}
+
+.plusButton,
+.minusButton {
+    width: 62px;
+    height: 51px;
+    background-color: rgba(243, 115, 21, 0.9);
+    border: 1px solid #000000;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+
+.plusButton {
+    margin-right: 15px;
+}
+
+.minusButton {
+    margin-left: 15px;
+}
