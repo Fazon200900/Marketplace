@@ -1,3 +1,5 @@
+"use strict";
+
 let products = [
     {
         name: "Burger",
@@ -28,9 +30,80 @@ let products = [
         price: 4.99,
         path: "media/hamburger.jpg"
     },
-]
+];
 
-mainDiv = document.createElement("div");
+let order = {};
+
+let orderDiv = document.createElement("div");
+orderDiv.id = "orderDiv";
+orderDiv.classList.add("mainButtons");
+document.body.appendChild(orderDiv);
+
+let orderText = document.createElement("div");
+orderText.textContent = "Order";
+orderText.className = "orderText";
+orderText.id = "orderText";
+orderDiv.appendChild(orderText);
+
+let checkDiv = document.createElement("div");
+checkDiv.id = "checkDiv";
+orderDiv.appendChild(checkDiv);
+
+let table = document.createElement("table");
+table.className = "table";
+table.id = "table";
+checkDiv.appendChild(table);
+
+let count = 0;
+
+function filltable() {
+    document.getElementById("table").remove();
+    
+    let table = document.createElement("table");
+    table.className = "table";
+    table.id = "table";
+    checkDiv.appendChild(table);
+
+    let index = 0;
+
+    for (let i of Object.keys(order)) {
+        let tr = document.createElement("tr");
+        tr.className = "checkTr";
+        tr.id = `tr_${index}`;
+        table.appendChild(tr);
+
+        let nameTd = document.createElement("td");
+        nameTd.classList.add("nameTd");
+        nameTd.classList.add("td");
+        nameTd.id = `nameTd_${index}`;
+        nameTd.textContent = i.slice(0, i.lastIndexOf(" "));
+        tr.appendChild(nameTd);
+
+        let countTd = document.createElement("td");
+        countTd.classList.add("countTd");
+        countTd.classList.add("td");
+        countTd.id = `countTd_${index}`;
+        countTd.textContent = order[i];
+        tr.appendChild(countTd);
+
+        let priceTd = document.createElement("td");
+        priceTd.classList.add("priceTd");
+        priceTd.classList.add("td");
+        priceTd.id = `priceTd_${index}`;
+        priceTd.textContent = +i.slice(i.lastIndexOf(" ") + 2, i.length) * +countTd.textContent //.slice(title.textContent.lastIndexOf(" ")+1, title.textContent.length)
+        count += +priceTd.textContent.slice(0, priceTd.textContent.length);
+        tr.appendChild(priceTd);
+    }
+    let priceText = document.createElement("div");
+    priceText.textContent = `Price: ${count}`;
+    priceText.className = "priceText";
+    priceText.id = "priceText";
+    orderDiv.appendChild(priceText);
+}
+
+
+
+let mainDiv = document.createElement("div");
 mainDiv.className = "mainDiv";
 document.body.appendChild(mainDiv);
 for (let i = 0; i < products.length; i++) {
@@ -84,11 +157,15 @@ for (let i = 0; i < products.length; i++) {
         addButton.classList.add("mainButtons");
         plusButton.classList.remove("mainButtons");
         minusButton.classList.remove("mainButtons");
+        order[title.textContent] = counter.textContent;
+        console.log(order)
     })
 
     plusButton.addEventListener("click", ()=>{
         j += 1;
         counter.textContent = j;
+        order[title.textContent] = counter.textContent;
+        console.log(order)
     })
 
     minusButton.addEventListener("click", ()=>{
@@ -97,14 +174,27 @@ for (let i = 0; i < products.length; i++) {
             addButton.classList.remove("mainButtons");
             plusButton.classList.add("mainButtons");
             minusButton.classList.add("mainButtons");
+            delete order[title.textContent];
         }
         else {
             j -= 1;
             counter.textContent = j;
+            order[title.textContent] = counter.textContent;
         }
     })
 }
 
+let orderButton = document.createElement("button");
+orderButton.id = "orderButton";
+orderButton.className = "orderButton";
+orderButton.textContent = "Order";
+orderButton.addEventListener("click", ()=>{
+    orderDiv.classList.remove("mainButtons");
+    document.getElementsByClassName("mainDiv")[0].classList.add("mainButtons");
+    document.getElementsByClassName("mainDiv")[0].classList.remove("mainDiv");
+    filltable();
+})
+mainDiv.appendChild(orderButton);
 let orderButton = document.createElement("button");
 orderButton.id = "order";
 orderButton.className = "orderButton";
