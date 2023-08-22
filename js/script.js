@@ -188,12 +188,12 @@ let orderButton = document.createElement("button");
 orderButton.id = "orderButton";
 orderButton.className = "orderButton";
 orderButton.textContent = "Order";
-orderButton.addEventListener("click", ()=>{
+orderButton.addEventListener("click", () => {
     orderDiv.classList.remove("mainButtons");
     document.getElementsByClassName("mainDiv")[0].classList.add("mainButtons");
     document.getElementsByClassName("mainDiv")[0].classList.remove("mainDiv");
     filltable();
     order["Price"] = count;
     console.log(order);
-})
+});
 mainDiv.appendChild(orderButton);
