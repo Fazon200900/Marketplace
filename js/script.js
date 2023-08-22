@@ -197,3 +197,6 @@ orderButton.addEventListener("click", () => {
     console.log(order);
 });
 mainDiv.appendChild(orderButton);
+
+let tg = window.Telegram.WebApp;
+console.log(tg.initData);
