@@ -193,10 +193,7 @@ orderButton.addEventListener("click", ()=>{
     document.getElementsByClassName("mainDiv")[0].classList.add("mainButtons");
     document.getElementsByClassName("mainDiv")[0].classList.remove("mainDiv");
     filltable();
+    order["Price"] = count;
+    console.log(order);
 })
-mainDiv.appendChild(orderButton);
-let orderButton = document.createElement("button");
-orderButton.id = "order";
-orderButton.className = "orderButton";
-orderButton.textContent = "Order";
 mainDiv.appendChild(orderButton);
