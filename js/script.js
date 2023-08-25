@@ -199,7 +199,7 @@ orderButton.addEventListener("click", () => {
 mainDiv.appendChild(orderButton);
 
 let tg = window.Telegram.WebApp;
-init = document.createElement("p");
+let init = document.createElement("p");
 init.textContent = tg.initData;
 document.body.appendChild(init);
 console.log(tg.initData);
