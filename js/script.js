@@ -195,6 +195,7 @@ orderButton.addEventListener("click", () => {
     filltable();
     order["Price"] = count;
     console.log(order);
+    tg.sendData(order);
 });
 mainDiv.appendChild(orderButton);
 
