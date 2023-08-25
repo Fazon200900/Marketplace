@@ -200,6 +200,6 @@ mainDiv.appendChild(orderButton);
 
 let tg = window.Telegram.WebApp;
 let init = document.createElement("p");
-init.textContent = tg.initDataUnsafe.from_user.first_name;
 document.body.appendChild(init);
+init.textContent = tg.initDataUnsafe.user.first_name;
 console.log(tg.initData);
