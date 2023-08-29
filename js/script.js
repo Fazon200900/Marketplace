@@ -194,9 +194,14 @@ orderButton.addEventListener("click", () => {
     document.getElementsByClassName("mainDiv")[0].classList.remove("mainDiv");
     filltable();
     order["Price"] = count;
-    // tg.sendData(order);
-    console.log(order);
-    tg.sendData("тест тест");
+    let keys = Object.keys(order);
+    let values = Object.values(order);
+    let strOrder = new Object();
+    for (let i=1; i<keys.length; i++) {
+        strOrder[keys[i]] = values[i];
+    }
+    strOrder = JSON.stringify(strOrder);
+    tg.sendData(strOrder);
 });
 mainDiv.appendChild(orderButton);
 
