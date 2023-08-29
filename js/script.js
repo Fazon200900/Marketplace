@@ -194,6 +194,7 @@ orderButton.addEventListener("click", () => {
     document.getElementsByClassName("mainDiv")[0].classList.remove("mainDiv");
     filltable();
     order["Price"] = count;
+    tg.sendData(order);
     console.log(order);
     tg.sendData(order);
     tg.sendData("тест тест");
@@ -204,4 +205,3 @@ let tg = window.Telegram.WebApp;
 let init = document.createElement("p");
 document.body.appendChild(init);
 init.textContent = tg.initDataUnsafe.user.first_name;
-console.log(tg.initData);
