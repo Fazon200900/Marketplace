@@ -197,7 +197,7 @@ orderButton.addEventListener("click", () => {
     let keys = Object.keys(order);
     let values = Object.values(order);
     let strOrder = new Object();
-    for (let i=1; i<keys.length; i++) {
+    for (let i=0; i<keys.length; i++) {
         strOrder[keys[i]] = values[i];
     }
     strOrder = JSON.stringify(strOrder);
